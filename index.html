@@ -32,13 +32,20 @@
                 </script>
             </p>
             <p> Please import external file hello.js here. 
-                
+                <script src="js/hello.js"></script>
             </p>
         </div>
 
         <div class="practice">
             <h1> Variable and Arithemetic Operation</h1>
             <p> Practice on variables </p>
+            <script>
+                var a = "great"; //***AWARE OF TYPE
+                a = 5;
+                var b = 10;
+                var c = a + b;
+                document.write("c =" +c);
+            </script>
 
 
         </div>
@@ -46,9 +53,16 @@
         <div class="practice">
             <h1> JavaScript Escape Sequence</h1>
             <p> Write an image to the page </p>
+            <script>
+                for(var i=1;i<7;i++){
+                document.writeln("<img src=\"img/die"+i+".png\">");
+                
+                }
+            </script>
 
 
             <p> Write a table to the page </p>
+            <script></script>
 
         </div>
 
@@ -56,6 +70,10 @@
             <h1>Window and document object </h1>
             <p> Try alert, open, location, url </p>
             <script>
+                window.alert("hihih");
+                document.write(document.URL);
+                window.open("http://www.usca.edu/");
+                
 
             </script>
 
@@ -66,7 +84,19 @@
             <h1> Get textcontent of an element </h1>
             <p>Perform arithmetic operation on <span id="num1"> 4 </span> and <span id="num2">5 </span> </p>
             <p>Result:
-                <script src="js/arith.js"></script>
+                <script>
+                    //access the element
+                    var sE = document.getElementById("num1");
+                    var n = parseInt(sE.textContent);
+
+                    document.write(n);
+
+                    var m = parseInt(document.getElementById("num2").textContent);
+                    document.write(m);
+
+                    var ans = n+m;
+                    document.write(" The sum is "+ans);
+                </script>
             </p>
 
         </div>
