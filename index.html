@@ -8,7 +8,21 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
+    <script>
+        $(document).ready(function(){
+            $('body').hide().fadeIn(3000, function(){alert("done!");});
+            $('img').hide();
+            /*how jquery event works */
+            $('h1').keyup(function(e){
 
+                //$(this).slideUp();
+                console.log(e.keyCode);
+                $(this).text("Hide the section");
+                $(this).parent().children('p').slideToggle();
+            });
+            //var content = $('h1').text();
+        });
+    </script>
 </head>
 
 <body>
@@ -473,7 +487,7 @@
         <div class="practice">
             <h1>Change Attribute -- Rolling a dice </h1>
             <p> <input type="button" id="roll" value="roll" /> </p>
-            <p> <img src="img/die1.png"> </p>
+            <p> <img id = "dieimage" src="img/die1.png"> </p>
             <table>
                 <tr>
                     <th>Result</th>
@@ -494,6 +508,21 @@
                     <td id="r6"></td>
                 </tr>
             </table>
+            <script>
+                //event handler
+                document.getElementById('roll').addEventListener('click',rolldice);
+                //execution of the code
+                var stats = [0,0,0,0,0,0];
+                function rolldice(){
+                    console.log("rolling dice initiated");
+                    var e1 = document.getElementById('dieimage');
+                    var random = Math.floor(Math.random()*6)+1;
+                    e1.setAttribute("src","img/die"+random+".png")
+                    stats[random-1]++;
+                    //display the number in the right place.
+                    var e3 = document.getElementById('r'+random).textContent=(stats[random]+=e3).toString;
+                }
+            </script>
 
         </div>
 
@@ -515,6 +544,18 @@
             <div class="img-container-hide">
                 <img src="img/usca5.jpg" alt="usca">
             </div>
+            <script>
+                var index = 0; //show the image
+                var imglist = document.querySelectorAll('.img-container-hide');
+                //state animation
+                setInterval(changepic,3000);
+                function changepic(){
+                    imglist[index].setAttribute('class','.img-container-hide');
+                    index++
+                    index = index%5;
+                    imglist[index].setAttribute('class','img-container');
+                }
+            </script>
 
         </div>
 
